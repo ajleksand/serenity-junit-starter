@@ -21,4 +21,10 @@ public class Specification {
                 .expectStatusCode(200)
                 .build();
     }
+
+    public static ResponseSpecification respSpecCod201() {
+        return new ResponseSpecBuilder()
+                .expectStatusCode(201)
+                .build();
+    }
 }

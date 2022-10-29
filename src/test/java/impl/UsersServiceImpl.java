@@ -1,11 +1,13 @@
 package impl;
 
 import models.Page;
+import models.ResponseUser;
 import net.thucydides.core.annotations.Step;
 import service.UsersService;
 
-import static config.Specification.requestSpec;
-import static config.Specification.responseSpecOk;
+import java.util.HashMap;
+
+import static config.Specification.*;
 import static io.restassured.RestAssured.given;
 
 public class UsersServiceImpl implements UsersService {
@@ -22,5 +24,18 @@ public class UsersServiceImpl implements UsersService {
                 .then()
                 .spec(responseSpecOk())
                 .extract().body().as(Page.class);
+    }
+
+    @Step("Создаем пользователя")
+    @Override
+    public ResponseUser createUser(HashMap<String, String> randomUser) {
+        return given()
+                .spec(requestSpec(URI))
+                .body(randomUser)
+                .when()
+                .post(SERVICE)
+                .then()
+                .spec(respSpecCod201())
+                .extract().body().as(ResponseUser.class);
     }
 }
