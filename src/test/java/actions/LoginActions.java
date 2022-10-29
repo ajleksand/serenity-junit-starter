@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Step;
 import page.LoginPage;
 
 public class LoginActions extends UIInteractions {
-
     LoginPage loginPage;
 
     @Step("Send input Login")

@@ -13,10 +13,9 @@ public class ItemPage extends PageComponent {
     private WebElementFacade removeBtn;
 
     public void clickAddToCartBtn() {
-         addToCartBtn.click();
+        addToCartBtn.click();
 
     }
-
     public String getTextRemoveBtn() {
         return addToCartBtn.getText();
     }

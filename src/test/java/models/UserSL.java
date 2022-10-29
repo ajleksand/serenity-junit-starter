@@ -1,10 +1,10 @@
-package modal;
+package models;
 
-public class User {
+public class UserSL {
     private String name;
     private String password;
 
-    public User(String name, String password) {
+    public UserSL(String name, String password) {
         this.name = name;
         this.password = password;
     }

@@ -11,8 +11,9 @@ public class MainHeaderAction extends UIInteractions {
     public boolean isItemInBasket() {
         return mainHeader.isItemInBasket();
     }
+
     @Step("Get quantity item in basket")
-    public int getQuantityItemInBasket(){
+    public int getQuantityItemInBasket() {
         return mainHeader.getQuantityItemBasket();
     }
 

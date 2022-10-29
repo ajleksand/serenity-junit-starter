@@ -5,7 +5,6 @@ import net.thucydides.core.annotations.Step;
 import page.InventoryPage;
 
 public class InventoryAction extends UIInteractions {
-
     InventoryPage inventoryPage;
 
     @Step("Select short container")

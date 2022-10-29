@@ -1,15 +1,13 @@
 package starter;
 
 import actions.*;
-import modal.User;
-import net.serenitybdd.core.Serenity;
+import models.UserSL;
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.WebDriver;
 
-import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SerenityJUnit5Extension.class)
@@ -26,7 +24,7 @@ public class AddToCardTest {
     @DisplayName("Add item to basket")
     public void testLoginInSwagLabs() {
         //Создаем пользователя
-        User standardUser = new User("standard_user", "secret_sauce");
+        UserSL standardUser = new UserSL("standard_user", "secret_sauce");
 
         navigate.toTheHomePage();
         loginActions.setLoginInp(standardUser.getName());
