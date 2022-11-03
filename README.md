@@ -1,25 +1,44 @@
-# Serenity JUnit Starter project
+Необходимо с помощью BDD подхода, реализовать автотесты для ui и api слоя. Все это сделать в рамках одного проекта с помощью фреймворка Serenity BDD. Создать автотесты необходимо в ветке с названием “test_branch”, затем необходимо создать мердж реквест в ветку main и отправить мердж реквест на проверку
 
-Get started quickly with Serenity BDD and JUnit 5 with this simple starter project. 
 
-## Get the code
+UI тест:
 
-Click on the [Use This Template button](https://github.com/serenity-bdd/serenity-junit-starter/generate) to create a new project in your own Github account. 
 
-Or simply [download a zip](https://github.com/serenity-bdd/serenity-junit-starter/archive/master.zip) file.
+1. На сайте https://www.saucedemo.com/ авторизоваться под стандартным юзером (standard_user)
+2. Изменить сортировку “NAME (A TO Z)” на “NAME (Z TO A)” (в правом углу)
+3. Провалиться (нажатием на название товара) в карточку с товаром, которая в левом нижнем углу
+4. Убедиться, что корзина пустая (в правом верхнем углу)
+5. Добавить товар из карточки в корзину, нажатием на “Add to cart”
+6. Убедиться, что текст “Add to cart” был заменен на “Remove”
+7. Убедиться, что в корзину успешно был добавлен товар (счетчик с кол-ом товаров изменился)
 
-## Running the tests under Maven
+API тесты:
 
-The template project comes with both Maven and Gradle build scripts. To run the tests with Maven, open a command window and run:
 
-    mvn clean verify
+Тест №1:
 
-## Use Gradle
+1. Дернуть ручку GET https://reqres.in/api/users?page=2
+2. Убедиться, что пришел статус код 200
+3. Убедиться, что в ответе, есть “first_name” со значением “Lindsay”
+4. Убедиться, что в ответе, есть “page” со значением “2”
 
-For gradle, pen a command window and run:
+Тест №2:
 
-    gradlew test 
+1. Дернуть ручку POST https://reqres.in/api/users c request body:
+{
 
-## Viewing the reports
+"name": STRING,
 
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+"job": STRING
+
+}
+
+
+name - строка рандомно сгенерированная
+
+job - строка рандомно сгенерированная
+
+
+2. Убедиться, что status code 201
+3. Убедиться, что в response body в поле name содержится значение, которое было передано в request body
+4. Убедиться, что в response body в поле job содержится значение, которое было передано в request body
